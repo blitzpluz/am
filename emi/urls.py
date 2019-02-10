@@ -22,3 +22,6 @@ urlpatterns = [
     # url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),
 ]
+if settings.DEBUG:
+    urlpatterns  += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns  += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
