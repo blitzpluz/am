@@ -21,17 +21,14 @@
         <div class="mx-auto col-lg-6 col-10">
           <h1 class="my-3">MESA DE AYUDA<br>INFORMATICA ENAMI 2019</h1>
           <p class="mb-3">Rellena el siguiente formulario y te atenderemos a la brevedad.</p>
-          <form class="text-left">
-            <div class="form-group"> <label for="form16" class="my-3">Inicial&nbsp; de tu primer nombre</label> <input type="text" class="form-control" id="form16" placeholder="P" required="required"> </div>
-            <div class="form-group"> <label for="form17">Tu apellido</label> <input type="text" class="form-control" id="form17" placeholder="Rivera" required="required"> </div>
-            <div class="form-group"> <label for="form18">Centro de costo</label> <input type="number" class="form-control" id="form18" placeholder="01-1020" required="required"> </div>
-            <div class="form-row">
-              <div class="form-group col-md-12"> <label for="form19">Anexo</label> <input type="number" class="form-control" id="form19" required="required" placeholder="3333">
-                <div class="form-group"><label>Asunto</label><input type="text" class="form-control" id="form19" required="required"></div>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
-          </form>
+            {% block content %}
+              <form method="POST" actions="">{% csrf_token %}
+                  {{el_form.as_p}}
+                  <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+              </form>
+
+            {% endblock %}
+
         </div>
       </div>
     </div>
